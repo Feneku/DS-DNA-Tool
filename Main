@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        int Daily = 0;
+        int dailyGain = 0;
+        int dayCount = 0;
+        int Goal = 0;
+        float output = 0;
+
+        System.out.println("Enter current daily gain");
+        Daily = scanner.nextInt();
+        
+        System.out.println("Enter how much gain increases by daily, this will be equal to your growth multiplier. However it will be double that if you are in the region bonus. if you are the current bonus'd dino it will be 5. if you are the bonus dino and in the region bonus it will be 10.");
+        dailyGain = scanner.nextInt();
+        
+        System.out.println("Enter the DNA amount you want to count for, this is how much you want to GAIN not the amount you want to reach so if you want 50000 and you have 10000 already, input 40000!");
+        Goal = scanner.nextInt();
+
+        while (Goal > 0) {
+            Goal -= Daily;
+            dayCount++;
+            Daily += dailyGain;
+        }
+        
+        output = dayCount;
+        System.out.println("in-game days:");
+        System.out.println(output);
+        
+        System.out.println("IRL Minutes");
+        output = dayCount * 3.5f;
+        System.out.println(output);
+        
+        System.out.println("IRL Hours");
+        output /= 60;
+        System.out.println(output);
+        
+        scanner.close();
+    }
+}
